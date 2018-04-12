@@ -234,7 +234,7 @@ Exercise 10: Register the receieve_report listener to listen for the
 newswire event.
 ......................................................................*)
 
-WEvent.add_listener newswire receieve_report ;;
+WEvent.add_listener newswire receive_report ;;
 
 (* Here are some new headlines to use for testing this part. *)
 
