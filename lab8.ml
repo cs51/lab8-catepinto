@@ -178,7 +178,7 @@ newswire event.
   
 let id1 = WEvent.add_listener newswire fakeNewsNetwork ;;
 
-let _id2 = WEvent.add_listener newswire buzzFake ;;
+let id2 = WEvent.add_listener newswire buzzFake ;;
 
 (* Here are some headlines to play with. *)
 
@@ -191,9 +191,9 @@ Exercise 6: Finally, fire newswire events with the above three
 headlines, and observe what happens!
 ......................................................................*)
   
-let _ = WEvent.fire_event newswire h1 ;;
-let _ = WEvent.fire_event newswire h2 ;;
-let _ = WEvent.fire_event newswire h3 ;;
+WEvent.fire_event newswire h1 ;;
+WEvent.fire_event newswire h2 ;;
+WEvent.fire_event newswire h3 ;;
 
 (* Imagine now that you work at Facebook, and you're growing concerned
 with the proliferation of fake news. To combat the problem, you decide
@@ -206,7 +206,8 @@ the publications don't publish right away. *)
 Exercise 7: Remove the newswire listeners that were previously registered.
 ......................................................................*)
 
-let _ = WEvent.remove_listener newswire id1 ;;
+WEvent.remove_listener newswire id1 ;;
+WEvent.remove_listener newswire id2 ;;
 
 (*......................................................................
 Exercise 8: Create a new event called publish to signal that all
@@ -233,7 +234,7 @@ Exercise 10: Register the receieve_report listener to listen for the
 newswire event.
 ......................................................................*)
 
-let _ = WEvent.add_listener newswire receieve_report ;;
+WEvent.add_listener newswire receieve_report ;;
 
 (* Here are some new headlines to use for testing this part. *)
 
@@ -248,9 +249,9 @@ the news. (They've just queued up a bunch of listeners on the publish
 event instead.)
 ......................................................................*)
 
-let _ = WEvent.fire_event newswire h4 ;;
-let _ = WEvent.fire_event newswire h5 ;;
-let _ = WEvent.fire_event newswire h6 ;;
+WEvent.fire_event newswire h4 ;;
+WEvent.fire_event newswire h5 ;;
+WEvent.fire_event newswire h6 ;;
 
 print_string "Moved to publication.\n" ;;
 
